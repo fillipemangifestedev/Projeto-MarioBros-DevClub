@@ -12,6 +12,9 @@
     --cinza: gray;
     --font-princial: "Mukata", sans-serif;
     --font-adicional: "Mukta", sans-serif;
+
+    --gutter: clamp(16px, 6vw, 100px);
+    --largura-max: 1600px;
 }
 
 * {
@@ -20,45 +23,61 @@
     box-sizing: border-box;
 }
 
+img,
+video {
+    max-width: 100%;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     z-index: 1;
 }
 
 header {
     display: flex;
     align-items: center;
-    padding: 30px 0 0 205px;
+    flex-wrap: wrap;
+    padding: 30px var(--gutter) 0;
     width: 100%;
-    gap: 80px;
+    max-width: var(--largura-max);
+    gap: 16px clamp(24px, 4vw, 80px);
     position: relative;
     z-index: 2;
 }
 
 .mario {
-    width: 70px;
+    width: clamp(48px, 5vw, 70px);
+    height: auto;
 }
 
 nav {
     display: flex;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 12px 30px;
 }
 
 a {
     text-decoration: none;
     text-transform: capitalize;
     font-family: var(--font-princial);
-    font-size: 24px;
+    font-size: clamp(16px, 0.9vw + 8px, 24px);
     color: var(--branco);
     cursor: pointer;
 }
 
 a:hover {
     transition: 0.5s ease-in-out;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 3px;
 }
 
 .home:hover {
@@ -80,9 +99,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 32px;
     position: relative;
-    padding: 100px;
-    height: 100vh;
+    width: 100%;
+    max-width: var(--largura-max);
+    padding: var(--gutter);
+    min-height: 100vh;
+    min-height: 100svh;
     z-index: 2;
 }
 
@@ -92,12 +115,14 @@ main {
 }
 
 .mariobros {
-    width: 350px;
+    width: clamp(200px, 22vw, 350px);
+    height: auto;
 }
 
 p {
     color: var(--branco);
-    font-size: 20px;
+    font-size: clamp(16px, 0.8vw + 9px, 20px);
+    line-height: 1.5;
     font-family: var(--font-principal);
     text-align: justify;
     margin-bottom: 15px;
@@ -107,6 +132,7 @@ button {
     font-weight: bold;
     text-transform: uppercase;
     width: 200px;
+    max-width: 100%;
     height: 50px;
     border: none;
     border-radius: 3px;
@@ -122,26 +148,30 @@ button:hover {
 
 .div-2 {
     width: 434px;
+    max-width: 45%;
     padding: 20px;
 }
 
 .mario-luigi {
-    height: 500px;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
 }
 
 .div-3 {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
     overflow: hidden;
 }
 
 video {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
@@ -158,7 +188,9 @@ video {
     position: fixed;
     right: 0;
     bottom: 0;
-    padding: 20px;
+    padding: clamp(12px, 2vw, 20px);
+    padding-bottom: max(clamp(12px, 2vw, 20px), env(safe-area-inset-bottom));
+    padding-right: max(clamp(12px, 2vw, 20px), env(safe-area-inset-right));
     z-index: 2;
 }
 
@@ -166,10 +198,14 @@ video {
     cursor: pointer;
 }
 
-.link-whatsapp:hover {}
-
 .whatsapp {
-    width: 60px;
+    width: clamp(48px, 5vw, 60px);
+    height: auto;
+}
+
+.whatsapp:hover {
+    transform: scale(1.15);
+    filter: brightness(0.7);
 }
 
 form {
@@ -184,24 +220,36 @@ form {
     gap: 20px;
     padding: 20px;
     border-radius: 5px;
-    width: 350px;
+    width: min(350px, calc(100vw - 32px));
+    max-height: 58vh;
+    overflow-y: auto;
     transition: 0.5s left ease-in-out;
 }
 
 input {
-    height: 40px;
+    width: 100%;
+    height: 44px;
     padding-left: 10px;
+    font-size: 16px;
     border-radius: 5px;
     border: 1px solid var(--cinza);
     outline-color: var(--verde-neon);
 }
 
 textarea {
-    padding: 0 0 0 5px;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    resize: vertical;
     border-radius: 5px;
     border: 1px solid var(--cinza);
     outline-color: var(--verde-neon);
     height: 100px;
+}
+
+.button-form {
+    width: 100%;
+    margin-top: 0;
 }
 
 .mascara-form {
@@ -209,9 +257,16 @@ textarea {
     height: 100%;
     position: fixed;
     top: 0;
+    left: 0;
     background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
     z-index: 3;
     visibility: hidden;
     cursor: pointer;
     transition: 0.5s visibility ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
 }

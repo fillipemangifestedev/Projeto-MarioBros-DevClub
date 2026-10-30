@@ -1,0 +1,91 @@
+/* Notebook pequeno / tablet paisagem */
+@media (max-width: 1024px) {
+    .div-1 {
+        width: 50%;
+        padding: 12px;
+    }
+
+    .div-2 {
+        max-width: 42%;
+        padding: 12px;
+    }
+}
+
+/* Tablet retrato e celular: empilha tudo em uma coluna */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    main {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 16px;
+        padding-top: 24px;
+        padding-bottom: 96px; /* espaço para o botão do WhatsApp não cobrir o conteúdo */
+    }
+
+    .div-1 {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    p {
+        text-align: left; /* justify em coluna estreita cria buracos entre palavras */
+    }
+
+    .div-2 {
+        width: 100%;
+        max-width: 420px;
+        padding: 0;
+    }
+
+    .mario-luigi {
+        max-height: 45vh;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+    nav {
+        gap: 8px 20px;
+    }
+
+    .div-1 button {
+        width: 100%;
+    }
+
+    form {
+        padding: 16px;
+        gap: 14px;
+    }
+}
+
+/* Celular deitado ou telas muito baixas */
+@media (max-height: 500px) and (orientation: landscape) {
+    main {
+        min-height: auto;
+        padding-bottom: 80px;
+    }
+
+    form {
+        top: 5vh;
+        max-height: 90vh;
+    }
+}
+
+/* Monitores grandes */
+@media (min-width: 1921px) {
+    :root {
+        --largura-max: 1800px;
+    }
+}
