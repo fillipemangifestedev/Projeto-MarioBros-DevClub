@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --vermelho: #e11b0f;
+    --vermelho-claro-06b: #f3a49f;
+    --branco: #ffffff;
+    --verde: #10900b;
+    --verde-neon: #18d80f;
+    --verde-claro-06b: #9fd39d;
+    --amarelo: #f9c40d;
+    --amarelo-claro-06b: #fde79e;
+    --cinza: gray;
+    --font-princial: "Mukata", sans-serif;
+    --font-adicional: "Mukta", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 30px 0 0 205px;
+    width: 100%;
+    gap: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.mario {
+    width: 70px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: var(--font-princial);
+    font-size: 24px;
+    color: var(--branco);
+    cursor: pointer;
+}
+
+nav a:hover {
+    transition: o.5 ease-in-out;
+}
+
+.home:hover {
+    color: var(--amarelo-claro-06b);
+    border-bottom: 3px solid var(--vermelho);
+}
+
+.contact:hover {
+    color: var(--vermelho-claro-06b);
+    border-bottom: 3px solid var(--verde);
+}
+
+.service:hover {
+    color: var(--verde-claro-06b);
+    border-bottom: 3px solid var(--amarelo);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    padding: 100px;
+    height: 100vh;
+    z-index: 2;
+}
+
+.div-1 {
+    width: 40%;
+    padding: 20px;
+}
+
+.mariobros {
+    width: 350px;
+}
+
+p {
+    color: var(--branco);
+    font-size: 20px;
+    font-family: var(--font-principal);
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+button {
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 30px;
+    cursor: pointer;
+    color: var(--branco);
+    background-color: var(--vermelho);
+}
+
+button:hover {
+    background-color: var(--verde);
+}
+
+.div-2 {
+    width: 434px;
+    padding: 20px;
+}
+
+.mario-luigi {
+    height: 500px;
+}
+
+.div-3 {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+.mascara {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
+}
+
+.div-4 {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    z-index: 2;
+}
+
+.link-whatsapp {
+    cursor: pointer;
+}
+
+.whatsapp {
+    width: 60px;
+}
+
+form {
+    position: fixed;
+    z-index: 4;
+    top: 40%;
+    left: -350px;
+    /* left: 50%;
+    transform: translateX(-50%);
+    590px no centro* */
+    background-color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    width: 350px;
+}
+
+input {
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--cinza);
+    outline-color: var(--verde-neon);
+}
+
+textarea {
+    padding: 0 0 0 5px;
+    border-radius: 5px;
+    border: 1px solid var(--cinza);
+    outline-color: var(--verde-neon);
+    height: 100px;
+}
+
+.mascara-form {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
+    z-index: 3;
+}
